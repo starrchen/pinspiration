@@ -2,6 +2,7 @@ class BoardsController < ApplicationController
 
   def index
     authenticate_user!
+    @user = current_user
     @boards = Board.all
   end
 
