@@ -1,0 +1,5 @@
+<h2><%= @board.title %></h2>
+
+<% @board.pins.each do |pin| %>
+<p><%= link_to pin.title, board_pin_path(@board, pin) %></p>
+<% end %>
