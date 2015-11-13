@@ -6,12 +6,14 @@ class PinsController < ApplicationController
   end
 
   def new
+    @board = Board.find(params[:board_id])
     @pin = Pin.new
   end
 
   def create
-    @pin = Pin.create!(pin_params)
-    redirect_to board_pins_path
+    @board = Board.find(params[:board_id])
+    @pin = Pin.create!(pin_params.merge(board: @board))
+    redirect_to board_pin_path(@board, @pin)
   end
 
   def show
@@ -29,7 +31,7 @@ class PinsController < ApplicationController
     redirect_to board_pin_path(@board, @pin)
   end
 
-  def dstroy
+  def destroy
     @pin = Pin.find(params[:id])
     @pin.destroy
     redirect_to board_pins_path
