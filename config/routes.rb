@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/index'
 
-  get 'pins/index'
+  resources :pins do
+
+  end
+
+  resources :users do
+
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
