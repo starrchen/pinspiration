@@ -1,5 +1,5 @@
 <h2><%= @board.title %> <%= link_to "(+)", new_board_pin_path(@board) %></h2>
 
 <% @board.pins.each do |pin| %>
-<p><%= link_to pin.title, board_pin_path(@board, pin) %></
+<p><%= link_to pin.title, board_pin_path(@board, pin) %></p>
 <% end %>

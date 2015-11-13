@@ -21,6 +21,7 @@ class PinsController < ApplicationController
   end
 
   def edit
+    @board = Board.find(params[:board_id])
     @pin = Pin.find(params[:id])
   end
 
