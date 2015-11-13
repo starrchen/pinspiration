@@ -1,0 +1,11 @@
+<h2>Boards <%= link_to "(+)", new_user_board_path(current_user) %></h2>
+
+<div class="board-body">
+  <% @boards.each do |board| %>
+    <%= link_to user_board_path(current_user, board) do %>
+      <div class="each-board">
+        <h3> <%= board.title %></h3>
+      </div>
+    <% end %>
+  <% end %>
+</div>

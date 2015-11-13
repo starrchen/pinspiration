@@ -1,4 +1,4 @@
-<h2>Pins <%= link_to "(+)", new_pin_path %></h2>
+<h2>Pins <%= link_to "(+)", new_board_pin_path(current_user) %></h2>
 
 <div class="pin-body">
   <% @pins.each do |pin| %>

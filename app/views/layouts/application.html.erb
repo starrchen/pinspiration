@@ -13,7 +13,7 @@
   </header>
 
   <nav>
-    <%= link_to "All pins", pins_path %> ||
+    <%= link_to "All Boards", user_boards_path(current_user) %> ||
     <% if current_user %>
        Welcome, <%= current_user.email %>
        <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
