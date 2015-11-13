@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
 
   def index
+    authenticate_user!
     @pins = Pin.all
   end
 
@@ -9,8 +10,8 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.create(params[:id])
-    redirect_to pin_path(@pin)
+    @pin = Pin.create!(pin_params)
+    redirect_to pins_path
   end
 
   def show
@@ -33,10 +34,9 @@ class PinsController < ApplicationController
     redirect_to pins_path
   end
 
-end
-
 private
   def pin_params
     params.require(:pin).permit(:title, :image_url)
   end
+
 end
